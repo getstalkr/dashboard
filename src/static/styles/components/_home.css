@@ -1,0 +1,43 @@
+$wrapper-padding: 16px;
+
+.wrapper {
+	max-width: calc($max-width + $wrapper-padding * 2);
+	margin: 0 auto;
+	display: flex;
+	height: 100%;
+	padding: 0 $wrapper-padding;
+}
+
+#app {
+	height: 100%;
+}
+
+.text-section {
+	margin: 3em auto;
+}
+
+.btn--home-wrapper {
+  padding: 2em 1em;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.btn--home {
+  background-color: #fff;
+  align-self: stretch;
+  border: 1px solid $brand-color;
+  padding: 0.5em 1.5em;
+  border-radius: 3px;
+  background-color: $brand-color;
+  color: white;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+}
+
+@media screen and (min-width: 1280px) {
+  .btn--home {
+    display: none;
+  }
+}
