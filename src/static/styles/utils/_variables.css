@@ -1,0 +1,24 @@
+/* This file contains all application-wide CSS variables. */
+
+$text-font-stack: 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+$code-font-stack: 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Monaco', monospace;
+$serif-font-stack: Georgia, Times, 'Times New Roman', serif;
+
+$brand-color: #543662;
+$dark-brand-color: #231635;
+$error-color: #FB4F4F;
+
+$verification-initial: #27ae60;
+$verification-during: #f1c40f;
+$verification-final: #c0392b;
+
+$background-color: #FAFAFA;
+$very-light-grey: #EDEDED;
+$light-grey: #CCC;
+$mid-grey: #999;
+$dark-grey: #666;
+$very-dark-grey: #333;
+$text-color: #222;
+
+$max-width: 768px;
+$nav-height: 3.5em;
