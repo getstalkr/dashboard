@@ -1,0 +1,37 @@
+@-webkit-keyframes expire {
+
+  0% {
+    background: $verification-initial;
+    width: 100%;
+  }
+
+  50% {
+    background: $verification-during;
+    width: 50%;
+  }
+
+  100% {
+    background: $verification-final;
+    width: 0%;
+  }
+
+}
+
+@keyframes expire {
+
+  0% {
+    background: $verification-initial;
+    width: 100%;
+  }
+
+  50% {
+    background: $verification-during;
+    width: 50%;
+  }
+
+  100% {
+    background: $verification-final;
+    width: 0%;
+  }
+
+}

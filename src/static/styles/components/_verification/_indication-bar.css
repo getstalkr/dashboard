@@ -1,0 +1,11 @@
+.expire-bar, .color-bar {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 10px;
+  background: #ecf0f1;
+}
+
+.verification.running .color-bar {
+          animation: expire 600s linear;
+  -webkit-animation: expire 600s linear;
+}

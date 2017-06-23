@@ -1,0 +1,26 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:700);
+
+@import './_animate.css';
+@import './_indication-bar.css';
+
+.container {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.verification {
+  font-weight: bold;
+  position: relative;
+  padding: 16px 0;
+  font-size: 2.5em;
+  color: white;
+  background: #bdc3c7;
+  border-radius: 4px;
+  overflow: hidden;
+
+  text-align: center;
+  min-width: 280px;
+
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.15);
+}
