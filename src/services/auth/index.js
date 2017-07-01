@@ -32,7 +32,7 @@ const login = function (username, password) {
   return request.post('/login', {username, password})
     .then(response => {
       // Save token to local storage
-      localStorage.stalkr_session = response.token
+      localStorage().stalkr_session = response.token
 
       fetch(USER.secret, {
         method  : 'GET',
@@ -44,7 +44,7 @@ const login = function (username, password) {
       .then(res => res.json())
       .then(json => {
         console.log(json)
-        localStorage.stalkr_secret = json.secret
+        localStorage().stalkr_secret = json.secret
       })
 
       return Promise.resolve(true)
@@ -64,7 +64,7 @@ const logout = function () {
   */
 
 const loggedIn = function () {
-  return !!localStorage.stalkr_session
+  return !!localStorage().stalkr_session
 };
 
 /**

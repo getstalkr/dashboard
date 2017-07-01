@@ -82,8 +82,8 @@ const register = function (username, password) {
 
 const logout = function () {
     return new Promise(resolve => {
-      localStorage.removeItem('stalkr_session')
-      localStorage.removeItem('stalkr_secret')
+      localStorage().removeItem('stalkr_session')
+      localStorage().removeItem('stalkr_secret')
       resolve(true)
     })
 };
