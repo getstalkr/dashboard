@@ -1,38 +1,12 @@
-import {
-  CHANGE_FORM,
-  SET_AUTH,
-  SENDING_REQUEST,
-  REQUEST_ERROR,
-  CLEAR_ERROR
-} from '../actions/constants'
+import home from './home';
+import addCell from './add-cell'
 
-import { loggedIn } from '../services/auth'
+// import { combineReducers } from 'redux-immutable';
+import { combineReducers } from "redux";
 
-const initialState = {
-  formState: {
-    username: '',
-    password: ''
-  },
-  error: '',
-  currentlySending: false,
-  loggedIn: loggedIn()
-}
+const rootReducer = combineReducers({
+  home,
+  addCell
+});
 
-const reducer = function (state = initialState, action) {
-  switch (action.type) {
-    case CHANGE_FORM:
-      return {...state, formState: action.newFormState}
-    case SET_AUTH:
-      return {...state, loggedIn: action.newAuthState}
-    case SENDING_REQUEST:
-      return {...state, currentlySending: action.sending}
-    case REQUEST_ERROR:
-      return {...state, error: action.error}
-    case CLEAR_ERROR:
-      return {...state, error: ''}
-    default:
-      return state
-  }
-}
-
-export { reducer }
+export default rootReducer;
