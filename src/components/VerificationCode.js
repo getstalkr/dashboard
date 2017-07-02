@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-// import {changeForm} from '../../actions'
-
 class VerificationCode extends Component {
 
   constructor(props) {
@@ -39,7 +37,7 @@ class VerificationCode extends Component {
 //   dispatch: PropTypes.func,
 //   data: PropTypes.object,
 //   onSubmit: PropTypes.func,
-//   changeForm: PropTypes.func,
+//   signingChangeForm: PropTypes.func,
 //   btnText: PropTypes.string,
 //   error: PropTypes.string,
 //   currentlySending: PropTypes.bool

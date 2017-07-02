@@ -7,9 +7,9 @@ import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import { Provider } from 'react-redux'
 import { createLogger } from 'redux-logger'
-import { reducer } from './reducers'
+import rootReducer from './reducers'
 import { root as rootSaga } from './sagas'
-import { clearError } from './actions'
+import { signingClearError } from './actions'
 
 import './static/styles/main.css'
 
@@ -18,28 +18,27 @@ import Home from './components/Home'
 import Login from './components/Login'
 import Register from './components/Register'
 import Dashboard from './components/Dashboard'
+import NewDashboard from './components/NewDashboard'
 import NotFound from './components/NotFound'
 
 const logger = createLogger({
-  predicate: (getState, action) => action.type !== 'CHANGE_FORM'
+  predicate: (getState, action) => action.type !== 'SIGNING_CHANGE_FORM'
 })
 
 const sagaMiddleware = createSagaMiddleware()
 
-// Creates the Redux store using our reducer and the logger and saga middlewares
-const store = createStore(reducer, applyMiddleware(logger, sagaMiddleware))
-// We run the root saga automatically
+const store = createStore(
+  rootReducer,
+  applyMiddleware(logger, sagaMiddleware)
+)
+
 sagaMiddleware.run(rootSaga)
 
-/**
-* Checks authentication status on route change
-* @param  {object}   nextState The state we want to change into when we change routes
-* @param  {function} replace Function provided by React Router to replace the location
-*/
 function checkAuth (nextState, replace) {
-  const { loggedIn } = store.getState()
 
-  store.dispatch(clearError())
+  const { loggedIn } = store.getState().home
+
+  store.dispatch(signingClearError())
 
   // Check if the path isn't dashboard. That way we can apply specific logic to
   // display/render the path we want to
@@ -76,6 +75,7 @@ class LoginFlow extends Component {
               <Route path='/login' component={Login} />
               <Route path='/register' component={Register} />
               <Route path='/dashboard' component={Dashboard} />
+              <Route path='/new' component={NewDashboard} />
             </Route>
             <Route path='*' component={NotFound} />
           </Route>

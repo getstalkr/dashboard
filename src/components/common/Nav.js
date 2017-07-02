@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import LoadingButton from './LoadingButton';
 import {Link} from 'react-router';
 
-import {logout, clearError} from '../../actions'
+import {signingLogout, signingClearError} from '../../actions'
 
 class Nav extends Component {
   constructor (props) {
@@ -16,6 +16,7 @@ class Nav extends Component {
     let navButtons = this.props.loggedIn ? (
       <div>
         <Link to='/dashboard' className='btn btn--dash btn--nav'>Dashboard</Link>
+        <Link to='/new' className='btn btn--dash btn--nav'>Add a Dashboard</Link>
         {this.props.currentlySending
           ? (<LoadingButton className='btn--nav'/>)
           : (<a href='#' className='btn btn--login btn--nav' onClick={this._logout}>Logout</a>)
@@ -41,11 +42,11 @@ class Nav extends Component {
   }
 
   _logout () {
-    this.props.dispatch(logout())
+    this.props.dispatch(signingLogout())
   }
 
   _clearError () {
-    this.props.dispatch(clearError())
+    this.props.dispatch(signingClearError())
   }
 }
 

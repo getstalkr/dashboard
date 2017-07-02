@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import Form from './common/Form';
+import SigningForm from './common/Form/Signing';
 
-import {loginRequest} from '../actions';
+import {signingLoginRequest} from '../actions';
+
+import select from '../helpers/select'
+
 
 class Login extends Component {
   constructor (props) {
@@ -14,7 +17,7 @@ class Login extends Component {
 
   render () {
     let {dispatch} = this.props
-    let {formState, currentlySending, error} = this.props.data
+    let {formState, currentlySending, error} = this.props.data.home
 
     return (
       <div className='form-page__wrapper'>
@@ -22,14 +25,14 @@ class Login extends Component {
           <div className='form-page__form-header'>
             <h2 className='form-page__form-heading'>Login</h2>
           </div>
-          <Form data={formState} dispatch={dispatch} history={this.props.history} onSubmit={this._login} btnText={'Login'} error={error} currentlySending={currentlySending} />
+          <SigningForm data={formState} dispatch={dispatch} history={this.props.history} onSubmit={this._login} btnText={'Login'} error={error} currentlySending={currentlySending} />
         </div>
       </div>
     )
   }
 
   _login (username, password) {
-    this.props.dispatch(loginRequest({username, password}))
+    this.props.dispatch(signingLoginRequest({username, password}))
   }
 }
 
@@ -37,13 +40,6 @@ Login.propTypes = {
   data: PropTypes.object,
   history: PropTypes.object,
   dispatch: PropTypes.func
-}
-
-// Which props do we want to inject, given the global state?
-function select (state) {
-  return {
-    data: state
-  }
 }
 
 // Wrap the component to inject dispatch and state into it

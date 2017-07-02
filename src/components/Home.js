@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import SVGInline from 'react-svg-inline';
+import select from '../helpers/select'
 
 import logo from './../static/images/logo.svg';
 
@@ -53,12 +54,6 @@ class Home extends Component {
       </article>
 
     )
-  }
-}
-
-function select (state) {
-  return {
-    data: state
   }
 }
 
