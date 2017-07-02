@@ -6,17 +6,17 @@ import {
 import { logout } from '../services/auth';
 
 import {
-  SENDING_REQUEST,
-  REQUEST_ERROR
+  SIGNING_SENDING_REQUEST,
+  SIGNING_REQUEST_ERROR
 } from '../actions/constants'
 
 export function * logout () {
-  yield put({type: SENDING_REQUEST, sending: true})
+  yield put({type: SIGNING_SENDING_REQUEST, sending: true})
   try {
     let response = yield call(logout)
-    yield put({type: SENDING_REQUEST, sending: false})
+    yield put({type: SIGNING_SENDING_REQUEST, sending: false})
     return response
   } catch (error) {
-    yield put({type: REQUEST_ERROR, error: error.message})
+    yield put({type: SIGNING_REQUEST_ERROR, error: error.message})
   }
 }
