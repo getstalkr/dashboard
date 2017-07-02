@@ -1,202 +1,100 @@
-// --[ Imports ]---------------------------------------------------------------
-
 import {
-  CHANGE_FORM,
-  SET_AUTH,
-  SENDING_REQUEST,
-  LOGIN_REQUEST,
-  REGISTER_REQUEST,
+
+  SIGNING_CHANGE_FORM,
+  SIGNING_SET_AUTH,
+  SIGNING_SENDING_REQUEST,
+  SIGNING_LOGIN_REQUEST,
+  SIGNING_REGISTER_REQUEST,
   CLIENT_TOKEN_REQUEST,
-  LOGOUT,
-  REQUEST_ERROR,
-  CLEAR_ERROR
+  SIGNING_LOGOUT,
+  SIGNING_REQUEST_ERROR,
+  SIGNING_CLEAR_ERROR,
+
+  ADD_CELL_CHANGE_FORM,
+  ADD_CELL_SENDING_REQUEST,
+  ADD_CELL_REQUEST,
+  ADD_CELL_REQUEST_ERROR,
+  ADD_CELL_CLEAR_ERROR
+
 } from './constants'
 
-// --[ Type Aliases ]----------------------------------------------------------
-
-/*~
- * description: Payloads of information that send data from our application to our store.
- *
- * type: |
- *    type Action = { type: string; payload: Object };
- */
-
-// --[ Action Creators ]-------------------------------------------------------
-
-/*~
- * name: changeForm
- *
- * description: Sets the form state
- *
- * stability: stable
- *
- * params:
- * - newFormState          :: The new state of the form
- * - newFormState.username :: The new text of the username input field of the form
- * - newFormState.password :: The new text of the password input field of the form
- *
- * type: |
- *    object { username: string; password: string } => Action;
- */
-
-const changeForm = function (newFormState) {
-  return {type: CHANGE_FORM, newFormState}
+const signingChangeForm = function (newFormState) {
+  return {type: SIGNING_CHANGE_FORM, newFormState}
 }
 
-/*~
- * name: setAuthState
- *
- * description: Sets the authentication state of the application
- *
- * stability: stable
- *
- * params:
- * - newAuthState :: True means a user is logged in, false means no user is logged in
- *
- * type: |
- *    boolean => Action;
- */
-
-const setAuthState = function (newAuthState) {
-  return {type: SET_AUTH, newAuthState}
+const signingSetAuthState = function (newAuthState) {
+  return {type: SIGNING_SET_AUTH, newAuthState}
 }
 
-/*~
- * name: sendingRequest
- *
- * description: Sets the `currentlySending` state, which displays a loading indicator during requests
- *
- * stability: stable
- *
- * params:
- * - sending :: True means we're sending a request, false means we're not
- *
- * type: |
- *    boolean => Action;
- */
-
-const sendingRequest = function (sending) {
-  return {type: SENDING_REQUEST, sending}
+const signingSendingRequest = function (sending) {
+  return {type: SIGNING_SENDING_REQUEST, sending}
 }
 
-/*~
- * name: loginRequest
- *
- * description: Tells the app we want to log in a user
- *
- * stability: stable
- *
- * params:
- * - data          :: The data we're sending for log in
- * - data.username :: The username of the user to log in
- * - data.password :: The password of the user to log in
- *
- * type: |
- *    object { username: string; password: string } => Action;
- */
-
-const loginRequest = function (data) {
-  return {type: LOGIN_REQUEST, data}
+const signingLoginRequest = function (data) {
+  return {type: SIGNING_LOGIN_REQUEST, data}
 }
 
-/*~
- * name: logout
- *
- * description: Tells the app we want to log out a user
- *
- * stability: stable
- *
- * params:
- *
- * type: |
- *    object { type: string };
- */
-
-const logout = function () {
-  return {type: LOGOUT}
+const signingLogout = function () {
+  return {type: SIGNING_LOGOUT}
 }
 
-/*~
- * name: registerRequest
- *
- * description: Tells the app we want to register a user
- *
- * stability: stable
- *
- * params:
- * - data          :: The data we're sending for registration
- * - data.username :: The username of the user to register
- * - data.password :: The password of the user to register
- *
- * type: |
- *    object { username: string; password: string } => Action;
- */
-
-const registerRequest = function(data) {
-  return {type: REGISTER_REQUEST, data}
+const signingRegisterRequest = function(data) {
+  return {type: SIGNING_REGISTER_REQUEST, data}
 }
 
-/*~
- * name: clientTokenRequest
- *
- * description: Tells the app we want to register a user
- *
- * stability: stable
- *
- * params:
- * - data       :: The data we're sending for request
- * - data.token :: The token to auth
- *
- * type: |
- *    object { token:string } => Action;
- */
-
-const clientTokenRequest = function(data) {
-  return {type: CLIENT_TOKEN_REQUEST, data}
+const signingRequestError = function (error) {
+  return {type: SIGNING_REQUEST_ERROR, error}
 }
 
-/*~
- * name: requestError
- *
- * description: Sets the `error` state to the error received
- *
- * stability: stable
- *
- * params:
- * - error :: The error we got when trying to make the request
- *
- * type: |
- *    Error => Action;
- */
-
-const requestError = function (error) {
-  return {type: REQUEST_ERROR, error}
+const signingClearError = function () {
+  return {type: SIGNING_CLEAR_ERROR}
 }
 
-/*~
- * name: clearError
- *
- * description: Sets the `error` state as empty
- *
- * stability: stable
- *
- * params:
- *
- * type: |
- *    Action;
- */
 
-const clearError = function () {
-  return {type: CLEAR_ERROR}
+
+
+
+
+
+
+
+
+
+
+const addCellChangeForm = function (newFormState) {
+  return {type: ADD_CELL_CHANGE_FORM, newFormState}
 }
+
+const addCellSendingRequest = function (sending) {
+  return {type: ADD_CELL_SENDING_REQUEST, sending}
+}
+
+const addCellRequest = function (data) {
+  return {type: ADD_CELL_REQUEST, data}
+}
+
+const addCellRequestError = function (error) {
+  return {type: ADD_CELL_REQUEST_ERROR, error}
+}
+
+const addCellClearError = function () {
+  return {type: ADD_CELL_CLEAR_ERROR}
+}
+
 
 export {
-  changeForm,
-  setAuthState,
-  loginRequest,
-  logout,
-  registerRequest,
-  clientTokenRequest,
-  requestError,
-  clearError
+  signingChangeForm,
+  signingSetAuthState,
+  signingLoginRequest,
+  signingLogout,
+  signingRegisterRequest,
+  signingRequestError,
+  signingClearError,
+
+  addCellChangeForm,
+  addCellClearError,
+  addCellRequest,
+  addCellRequestError,
+  addCellSendingRequest
 };
+
