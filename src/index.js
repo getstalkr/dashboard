@@ -22,7 +22,9 @@ import NewDashboard from './components/NewDashboard'
 import NotFound from './components/NotFound'
 
 const logger = createLogger({
-  predicate: (getState, action) => action.type !== 'SIGNING_CHANGE_FORM'
+  predicate: (getState, action) =>
+    action.type !== 'SIGNING_CHANGE_FORM' &&
+    action.type !== 'ADD_CELL_CHANGE_FORM'
 })
 
 const sagaMiddleware = createSagaMiddleware()
