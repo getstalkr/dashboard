@@ -1,7 +1,5 @@
 import { requestHandler as request } from './requestHandler';
 
-import * as storage from "localforage";
-
 import { USER } from './constants'
 import {
   basic,
@@ -43,7 +41,6 @@ const login = function (username, password) {
       .catch(error => console.log(error))
       .then(res => res.json())
       .then(json => {
-        console.log(json)
         localStorage().stalkr_secret = json.secret
       })
 

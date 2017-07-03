@@ -6,7 +6,7 @@ import {
 
 import {
   put as putData
-} from '../../services/auth';
+} from '../../services/dashboard';
 
 import { forwardTo } from '../../helpers/forwardTo'
 
@@ -17,8 +17,11 @@ import {
 
 const watchNewDashboard = function* () {
   while (true) {
+
     let request = yield take(ADD_CELL_REQUEST)
     let {team, project, travisApiKey} = request.data
+
+    yield call(putData, {team, project, travisApiKey})
 
     yield put({type: ADD_CELL_CHANGE_FORM, newFormState: {team: '', project: '', travisApiKey: ''}})
     forwardTo('/new')
