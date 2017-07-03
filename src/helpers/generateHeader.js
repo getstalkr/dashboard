@@ -33,11 +33,21 @@ const auth = {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     });
+  },
+
+  bearerDashboard (token) {
+    return new Headers({
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+      'name': 'Stalkr'
+    });
   }
 
 };
 
 const basic = auth.basic;
 const bearer = auth.bearer;
+const bearerDashboard = auth.bearerDashboard;
 
-export { basic, bearer };
+export { basic, bearer, bearerDashboard };
