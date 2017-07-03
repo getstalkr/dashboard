@@ -5,7 +5,7 @@ import LoadingButton from '../LoadingButton';
 
 import {addCellChangeForm} from '../../../actions';
 
-class NewDashBoardForm extends Component {
+class NewDashboardForm extends Component {
 
   constructor (props) {
 
@@ -17,6 +17,7 @@ class NewDashBoardForm extends Component {
     this._changeProject = this._changeProject.bind(this)
     this._changeTravisApiKey = this._changeTravisApiKey.bind(this)
   }
+
   render () {
 
     let {error} = this.props
@@ -114,7 +115,7 @@ class NewDashBoardForm extends Component {
   }
 }
 
-NewDashBoardForm.propTypes = {
+NewDashboardForm.propTypes = {
   dispatch: PropTypes.func,
   data: PropTypes.object,
   onSubmit: PropTypes.func,
@@ -124,4 +125,4 @@ NewDashBoardForm.propTypes = {
   currentlySending: PropTypes.bool
 }
 
-export default NewDashBoardForm
+export default NewDashboardForm
