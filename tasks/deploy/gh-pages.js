@@ -1,7 +1,3 @@
-// GitHub Pages deployer.
-
-// Pushes files from `build/` to the `master` branch on GitHub.
-
 'use strict'
 
 const ghpages = require('gh-pages');

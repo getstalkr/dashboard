@@ -8,21 +8,6 @@ import {
   getCurrentStorage as localStorage
 } from '../../helpers'
 
-/*~
-* name: login
-*
-* description: Logs a user in, returning a promise with `true` when done
-*
-* stability: stable
-*
-* params:
-* - username :: The username of the user
-* - password :: The password of the user
-*
-* type: |
-*    string, string => Promise<boolean>
-*/
-
 const login = function (username, password) {
 
   if (loggedIn()) return Promise.resolve(true)
@@ -48,27 +33,13 @@ const login = function (username, password) {
     })
 };
 
-/**
-* Logs the current user out
-*/
-
 const logout = function () {
   return request.post('/logout')
 };
 
-  /**
-  * Checks if a user is logged in
-  */
-
 const loggedIn = function () {
   return !!localStorage().stalkr_session
 };
-
-/**
-* Registers a user and then logs them in
-* @param  {string} username The username of the user
-* @param  {string} password The password of the user
-*/
 
 const register = function (username, password) {
   return request.post('/register', {username, password})

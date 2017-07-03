@@ -61,19 +61,19 @@ function makeWebpackConfig (options) {
   return {
     devtool,
     entry,
-    output: { // Compile into `js/build.js`
+    output: {
       path: path.resolve(__dirname, '../', 'build'),
       filename: 'js/bundle.js'
     },
     module: {
       loaders: [
         {
-          test: /\.js$/, // Transform all .js files required somewhere within an entry point...
-          loader: 'babel', // ...with the specified loaders...
-          exclude: path.join(__dirname, '../', '/node_modules/') // ...except for the node_modules folder.
+          test: /\.js$/,
+          loader: 'babel',
+          exclude: path.join(__dirname, '../', '/node_modules/')
         }, {
-          test: /\.css$/, // Transform all .css files required somewhere within an entry point...
-          loaders: ['style-loader', 'css-loader', 'postcss-loader'] // ...with PostCSS
+          test: /\.css$/,
+          loaders: ['style-loader', 'css-loader', 'postcss-loader']
         }, {
           test: /\.svg$/,
           loader: 'svg-inline-loader'

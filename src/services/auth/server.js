@@ -7,21 +7,6 @@ import {
   getCurrentStorage as localStorage
 } from '../../helpers'
 
-/*~
-* name: login
-*
-* description: Logs a user in
-*
-* stability: stable
-*
-* params:
-* - username :: The username of the user
-* - password :: The password of the user
-*
-* type: |
-*    string, string => Promise<Object, Error>
-*/
-
 const login = function (username, password) {
 
   return new Promise((resolve, reject) => {
@@ -43,21 +28,6 @@ const login = function (username, password) {
     })
   })
 };
-
-/*~
-* name: register
-*
-* description: Registers a user
-*
-* stability: stable
-*
-* params:
-* - username :: The username of the user
-* - password :: The password of the user
-*
-* type: |
-*    string, string => Promise<Object, Error>
-*/
 
 const register = function (username, password) {
 
