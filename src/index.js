@@ -42,9 +42,7 @@ function checkAuth (nextState, replace) {
 
   store.dispatch(signingClearError())
 
-  // Check if the path isn't dashboard. That way we can apply specific logic to
-  // display/render the path we want to
-  if (nextState.location.pathname !== '/dashboard') {
+  if (nextState.location.pathname !== '/token') {
     if (loggedIn) {
       if (nextState.location.state && nextState.location.pathname) {
         replace(nextState.location.pathname)
@@ -53,7 +51,6 @@ function checkAuth (nextState, replace) {
       }
     }
   } else {
-    // If the user is already logged in, forward them to the homepage
     if (!loggedIn) {
       if (nextState.location.state && nextState.location.pathname) {
         replace(nextState.location.pathname)
@@ -64,9 +61,7 @@ function checkAuth (nextState, replace) {
   }
 }
 
-// Mostly boilerplate, except for the routes. These are the pages you can go to,
-// which are all wrapped in the App component, which contains the navigation etc
-class LoginFlow extends Component {
+class Main extends Component {
   render () {
     return (
       <Provider store={store}>
@@ -76,7 +71,7 @@ class LoginFlow extends Component {
             <Route onEnter={checkAuth}>
               <Route path='/login' component={Login} />
               <Route path='/register' component={Register} />
-              <Route path='/dashboard' component={Dashboard} />
+              <Route path='/token' component={Dashboard} />
               <Route path='/new' component={NewDashboard} />
             </Route>
             <Route path='*' component={NotFound} />
@@ -87,4 +82,4 @@ class LoginFlow extends Component {
   }
 }
 
-ReactDOM.render(<LoginFlow />, document.getElementById('app'))
+ReactDOM.render(<Main />, document.getElementById('app'))

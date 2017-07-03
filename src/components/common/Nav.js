@@ -15,7 +15,7 @@ class Nav extends Component {
   render () {
     let navButtons = this.props.loggedIn ? (
       <div>
-        <Link to='/dashboard' className='btn btn--dash btn--nav'>Dashboard</Link>
+        <Link to='/token' className='btn btn--dash btn--nav'>My Token</Link>
         <Link to='/new' className='btn btn--dash btn--nav'>Add a Dashboard</Link>
         {this.props.currentlySending
           ? (<LoadingButton className='btn--nav'/>)

@@ -30,7 +30,7 @@ const watchRegister = function* () {
     if (wasSuccessful) {
       yield put({type: SIGNING_SET_AUTH, newAuthState: true})
       yield put({type: SIGNING_CHANGE_FORM, newFormState: {username: '', password: ''}})
-      forwardTo('/dashboard')
+      forwardTo('/token')
     }
   }
 }

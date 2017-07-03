@@ -38,7 +38,7 @@ const watchLogin = function* () {
 
       yield put({type: SIGNING_SET_AUTH, newAuthState: true})
       yield put({type: SIGNING_CHANGE_FORM, newFormState: {username: '', password: ''}})
-      forwardTo('/dashboard')
+      forwardTo('/token')
 
     } else if (winner.logout) {
 
