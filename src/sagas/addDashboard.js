@@ -12,13 +12,13 @@ import {
   ADD_CELL_REQUEST_ERROR
 } from '../actions/constants'
 
-const addDashboard = function * ({team, project, travisApiKey}) {
+const addDashboard = function * ({team, project, travisApiKey, githubApiKey, apexApiKey}) {
 
   yield put({type: ADD_CELL_SENDING_REQUEST, sending: true})
 
   try {
 
-    let response = yield call(putData, team, project, travisApiKey)
+    let response = yield call(putData, team, project, travisApiKey, githubApiKey, apexApiKey)
 
     return response
   } catch (error) {

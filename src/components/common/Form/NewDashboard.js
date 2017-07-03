@@ -16,6 +16,9 @@ class NewDashboardForm extends Component {
     this._changeTeam = this._changeTeam.bind(this)
     this._changeProject = this._changeProject.bind(this)
     this._changeTravisApiKey = this._changeTravisApiKey.bind(this)
+    this._changeGithubApiKey = this._changeGithubApiKey.bind(this)
+    this._changeApexApiKey = this._changeApexApiKey.bind(this)
+
   }
 
   render () {
@@ -73,6 +76,32 @@ class NewDashboardForm extends Component {
           </label>
         </div>
 
+        <div className='form__field-wrapper'>
+          <input
+            className='form__field-input'
+            id='githubApiKey'
+            type='text'
+            value={this.props.data.githubApiKey}
+            placeholder='770713b7ff6732d20fb1'
+            onChange={this._changeGithubApiKey} />
+          <label className='form__field-label' htmlFor='githubApiKey'>
+            Github API Key
+          </label>
+        </div>
+
+        <div className='form__field-wrapper'>
+          <input
+            className='form__field-input'
+            id='apexApiKey'
+            type='text'
+            value={this.props.data.apexApiKey}
+            placeholder='770713b7ff6732d20fb1'
+            onChange={this._changeApexApiKey} />
+          <label className='form__field-label' htmlFor='apexApiKey'>
+            Apex API Key
+          </label>
+        </div>
+
         <div className='form__submit-btn-wrapper'>
 
           { this.props.currentlySending
@@ -102,6 +131,14 @@ class NewDashboardForm extends Component {
     this._emitChange({...this.props.data, travisApiKey: event.target.value})
   }
 
+  _changeGithubApiKey (event) {
+    this._emitChange({...this.props.data, githubApiKey: event.target.value})
+  }
+
+  _changeApexApiKey (event) {
+    this._emitChange({...this.props.data, apexApiKey: event.target.value})
+  }
+
   _emitChange (newFormState) {
     this.props.dispatch(addCellChangeForm(newFormState))
   }
@@ -111,7 +148,10 @@ class NewDashboardForm extends Component {
     this.props.onSubmit(
       this.props.data.team,
       this.props.data.project,
-      this.props.data.travisApiKey)
+      this.props.data.travisApiKey,
+      this.props.data.githubApiKey,
+      this.props.data.apexApiKey
+    )
   }
 }
 

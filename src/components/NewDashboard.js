@@ -32,8 +32,8 @@ class NewDashboard extends Component {
     )
   }
 
-  _submit (team, project, travisApiKey) {
-    this.props.dispatch(addCellRequest({team, project, travisApiKey}))
+  _submit (team, project, travisApiKey, githubApiKey, apexApiKey) {
+    this.props.dispatch(addCellRequest({team, project, travisApiKey, githubApiKey, apexApiKey}))
   }
 }
 

@@ -9,6 +9,8 @@ import {
 const initialState = {
   formState: {
     travisApiKey: '',
+    githubApiKey: '',
+    apexApiKey: '',
     project: '',
     team: ''
   },

@@ -12,7 +12,7 @@ const get = function () {
 
 };
 
-const put = function ({team, project, travisApiKey}) {
+const put = function ({team, project, travisApiKey, githubApiKey, apexApiKey}) {
 
   const dashboard =
 
@@ -23,7 +23,7 @@ const put = function ({team, project, travisApiKey}) {
             {
                 "cell": "CellCloudPerformance",
                 "params": {
-                    "pusher_key": travisApiKey,
+                    "pusher_key": apexApiKey,
                     "stalkr_project": project,
                     "stalkr_team": team
                 }
@@ -41,7 +41,7 @@ const put = function ({team, project, travisApiKey}) {
             {
                 "cell": "CellCommitsFeed",
                 "params": {
-                    "pusher_key": travisApiKey,
+                    "pusher_key": githubApiKey,
                     "stalkr_project": project,
                     "stalkr_team": team
                 }

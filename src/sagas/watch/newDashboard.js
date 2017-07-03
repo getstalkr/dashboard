@@ -19,11 +19,11 @@ const watchNewDashboard = function* () {
   while (true) {
 
     let request = yield take(ADD_CELL_REQUEST)
-    let {team, project, travisApiKey} = request.data
+    let {team, project, travisApiKey, githubApiKey, apexApiKey} = request.data
 
-    yield call(putData, {team, project, travisApiKey})
+    yield call(putData, {team, project, travisApiKey, githubApiKey, apexApiKey})
 
-    yield put({type: ADD_CELL_CHANGE_FORM, newFormState: {team: '', project: '', travisApiKey: ''}})
+    yield put({type: ADD_CELL_CHANGE_FORM, newFormState: {team: '', project: '', travisApiKey: '', githubApiKey: '', apexApiKey: ''}})
     forwardTo('/new')
 
   }
