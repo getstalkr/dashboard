@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 import VerificationCode from './VerificationCode';
 
-function Dashboard () {
-  return (
-    <article>
-      <section className='text-section'>
+class Dashboard extends Component {
 
-        <VerificationCode code = {13} />
-
-      </section>
-    </article>
-  )
+  render() {
+    return (
+      <article>
+        <section className='text-section'>
+          <VerificationCode secret={localStorage.stalkr_secret} />
+        </section>
+      </article>
+    )
+  }
 }
 
 export default Dashboard

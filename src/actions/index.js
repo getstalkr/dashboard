@@ -50,17 +50,6 @@ const signingClearError = function () {
   return {type: SIGNING_CLEAR_ERROR}
 }
 
-
-
-
-
-
-
-
-
-
-
-
 const addCellChangeForm = function (newFormState) {
   return {type: ADD_CELL_CHANGE_FORM, newFormState}
 }
