@@ -1,7 +1,7 @@
 import { DASHBOARD } from './constants'
 
 import {
-  bearerDashboard,
+  bearer,
   statusHandler,
   getCurrentStorage as localStorage
 } from '../../helpers'
@@ -18,7 +18,7 @@ const get = function () {
     fetch(DASHBOARD.all, {
       method: 'GET',
       mode: 'cors',
-      headers: bearerDashboard(localStorage().stalkr_session)
+      headers: bearer(localStorage().stalkr_session)
     })
     .then(statusHandler)
     .catch(error => console.log(error))
@@ -38,7 +38,7 @@ const put = function (dashboard) {
     fetch(DASHBOARD.new, {
       method: 'POST',
       mode: 'cors',
-      headers: bearerDashboard(localStorage().stalkr_session),
+      headers: bearer(localStorage().stalkr_session),
       body: JSON.stringify(dashboard)
     })
     .then(statusHandler)
