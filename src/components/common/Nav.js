@@ -13,7 +13,7 @@ class Nav extends Component {
   }
 
   render () {
-    let navButtons = this.props.loggedIn ? (
+    const navButtons = this.props.loggedIn ? (
       <div>
         <Link to='/token' className='btn btn--dash btn--nav'>My Token</Link>
         <Link to='/new' className='btn btn--dash btn--nav'>Add a Dashboard</Link>

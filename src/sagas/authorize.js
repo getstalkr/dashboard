@@ -18,18 +18,13 @@ const authorize = function * ({username, password, isRegistering}) {
   yield put({type: SIGNING_SENDING_REQUEST, sending: true})
 
   try {
-    let response
-
-    if (isRegistering) {
-      response = yield call(register, username, password)
-    } else {
-      response = yield call(login, username, password)
-    }
+    const response = (isRegistering)
+      ? yield call(register, username, password)
+      : yield call(login, username, password)
     return response
   } catch (error) {
     console.log(error)
     yield put({type: SIGNING_REQUEST_ERROR, error: error.message})
-
     return false
   } finally {
     yield put({type: SIGNING_SENDING_REQUEST, sending: false})

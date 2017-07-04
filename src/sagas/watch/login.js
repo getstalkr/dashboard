@@ -26,10 +26,10 @@ const watchLogin = function* () {
 
   while (true) {
 
-    let request = yield take(SIGNING_LOGIN_REQUEST)
-    let {username, password} = request.data
+    const request = yield take(SIGNING_LOGIN_REQUEST)
+    const {username, password} = request.data
 
-    let winner = yield race({
+    const winner = yield race({
       auth: call(authorize, {username, password, isRegistering: false}),
       logout: take(SIGNING_LOGOUT)
     })

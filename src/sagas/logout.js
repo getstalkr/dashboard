@@ -13,7 +13,7 @@ import {
 export function * logout () {
   yield put({type: SIGNING_SENDING_REQUEST, sending: true})
   try {
-    let response = yield call(logout)
+    const response = yield call(logout)
     yield put({type: SIGNING_SENDING_REQUEST, sending: false})
     return response
   } catch (error) {

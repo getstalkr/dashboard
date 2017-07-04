@@ -17,9 +17,7 @@ const addDashboard = function * ({team, project, travisApiKey, githubApiKey, ape
   yield put({type: ADD_CELL_SENDING_REQUEST, sending: true})
 
   try {
-
-    let response = yield call(putData, team, project, travisApiKey, githubApiKey, apexApiKey)
-
+    const response = yield call(putData, team, project, travisApiKey, githubApiKey, apexApiKey)
     return response
   } catch (error) {
     console.log(error)

@@ -23,7 +23,7 @@ class NewDashboardForm extends Component {
 
   render () {
 
-    let {error} = this.props
+    const {error} = this.props
 
     return (
 

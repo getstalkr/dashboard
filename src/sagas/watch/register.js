@@ -22,10 +22,10 @@ import {
 
 const watchRegister = function* () {
   while (true) {
-    let request = yield take(SIGNING_REGISTER_REQUEST)
-    let {username, password} = request.data
+    const request = yield take(SIGNING_REGISTER_REQUEST)
+    const {username, password} = request.data
 
-    let wasSuccessful = yield call(authorize, {username, password, isRegistering: true})
+    const wasSuccessful = yield call(authorize, {username, password, isRegistering: true})
 
     if (wasSuccessful) {
       yield put({type: SIGNING_SET_AUTH, newAuthState: true})

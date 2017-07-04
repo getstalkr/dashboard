@@ -17,8 +17,8 @@ class NewDashboard extends Component {
 
   render () {
 
-    let {dispatch} = this.props
-    let {formState, currentlySending, error} = this.props.data.addCell
+    const {dispatch} = this.props
+    const {formState, currentlySending, error} = this.props.data.addCell
 
     return (
       <div className='form-page__wrapper'>

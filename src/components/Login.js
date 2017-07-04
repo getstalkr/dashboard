@@ -16,8 +16,8 @@ class Login extends Component {
   }
 
   render () {
-    let {dispatch} = this.props
-    let {formState, currentlySending, error} = this.props.data.home
+    const {dispatch} = this.props
+    const {formState, currentlySending, error} = this.props.data.home
 
     return (
       <div className='form-page__wrapper'>
