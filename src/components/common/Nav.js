@@ -15,15 +15,16 @@ class Nav extends Component {
   render () {
     const navButtons = this.props.loggedIn ? (
       <div>
-        <Link to='/token' className='btn btn--dash btn--nav'>My Token</Link>
-        <Link to='/new' className='btn btn--dash btn--nav'>Add a Dashboard</Link>
+        <Link to='/token' className='btn btn--dash btn--nav'>My  TV Secret</Link>
+        <Link to='/dashboard/new' className='btn btn--dash btn--nav'>Add a Dashboard</Link>
         {this.props.currentlySending
           ? (<LoadingButton className='btn--nav'/>)
-          : (<a href='#' className='btn btn--login btn--nav' onClick={this._logout}>Logout</a>)
+          : (<a href='http://getstal.kr' className='btn btn--login btn--nav' onClick={this._logout}>Logout</a>)
         }
       </div>
     ) : (
       <div>
+        <a href='http://getstal.kr' className='btn btn--login btn--nav'>Go Home</a>
         <Link to='/register' className='btn btn--login btn--nav' onClick={this._clearError}>Register</Link>
         <Link to='/login' className='btn btn--login btn--nav' onClick={this._clearError}>Login</Link>
       </div>
@@ -33,7 +34,7 @@ class Nav extends Component {
       <div className='nav'>
         <div className='nav__wrapper'>
           <Link to='/' className='nav__logo-wrapper' onClick={this._clearError}>
-            <h1 className='nav__logo'>Stalkr  TV Auth</h1>
+            <h1 className='nav__logo'>Stalkr Dashboard</h1>
           </Link>
           {navButtons}
         </div>

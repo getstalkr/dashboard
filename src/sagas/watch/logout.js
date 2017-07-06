@@ -25,7 +25,7 @@ const watchLogout = function* () {
     yield put({type: SIGNING_SET_AUTH, newAuthState: false})
 
     yield call(logout)
-    forwardTo('/')
+    forwardTo('http://getstal.kr')
   }
 }
 

@@ -24,7 +24,7 @@ const watchNewDashboard = function* () {
     yield call(putData, {team, project, travisApiKey, githubApiKey, apexApiKey})
 
     yield put({type: ADD_CELL_CHANGE_FORM, newFormState: {team: '', project: '', travisApiKey: '', githubApiKey: '', apexApiKey: ''}})
-    forwardTo('/new')
+    forwardTo('/dashboard/new')
 
   }
 }

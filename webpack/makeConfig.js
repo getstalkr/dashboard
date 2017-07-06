@@ -5,9 +5,9 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 function makeWebpackConfig (options) {
-  const entry;
-  const plugins;
-  const devtool;
+  let entry;
+  let plugins;
+  let devtool;
 
   if (options.prod) {
     entry = [

@@ -67,12 +67,12 @@ class Main extends Component {
       <Provider store={store}>
         <Router history={browserHistory}>
           <Route component={App}>
-            <Route path='/' component={Home} />
+            <Route path='/' component={Login} />
             <Route onEnter={checkAuth}>
               <Route path='/login' component={Login} />
               <Route path='/register' component={Register} />
               <Route path='/token' component={Dashboard} />
-              <Route path='/new' component={NewDashboard} />
+              <Route path='/dashboard/new' component={NewDashboard} />
             </Route>
             <Route path='*' component={NotFound} />
           </Route>
